@@ -209,7 +209,7 @@ function resolveAsyncComponent (
   }
 }
 
-function extractProps (data: VNodeData, Ctor: Class<Component>): ?Object {
+function extractProps (data: VNodeData, Ctor: Class<Component>): null | undefined | Object {
   // we are only extrating raw values here.
   // validation and default values are handled in the child
   // component itself.
@@ -232,7 +232,7 @@ function extractProps (data: VNodeData, Ctor: Class<Component>): ?Object {
 
 function checkProp (
   res: Object,
-  hash: ?Object,
+  hash: null | undefined | Object,
   key: string,
   altKey: string,
   preserve?: boolean

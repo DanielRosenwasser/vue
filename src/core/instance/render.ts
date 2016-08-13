@@ -121,8 +121,8 @@ export function renderMixin (Vue: Class<Component>) {
   Vue.prototype._l = function renderList (
     val: any,
     render: () => VNode
-  ): ?Array<VNode> {
-    let ret: ?Array<VNode>, i, l, keys, key
+  ): null | undefined | Array<VNode> {
+    let ret: null | undefined | Array<VNode>, i, l, keys, key
     if (Array.isArray(val)) {
       ret = new Array(val.length)
       for (i = 0, l = val.length; i < l; i++) {
@@ -181,7 +181,7 @@ export function renderMixin (Vue: Class<Component>) {
 }
 
 export function resolveSlots (
-  renderChildren: ?VNodeChildren
+  renderChildren: null | undefined | VNodeChildren
 ): { [key: string]: Array<VNode> } {
   const slots = {}
   if (!renderChildren) {

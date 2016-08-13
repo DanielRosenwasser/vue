@@ -7,14 +7,14 @@ import { warn } from './debug'
 type PropOptions = {
   type: Function | Array<Function> | null,
   default: any,
-  required: ?boolean,
-  validator: ?Function
+  required: null | undefined | boolean,
+  validator: null | undefined | Function
 }
 
 export function validateProp (
   key: string,
   propOptions: Object,
-  propsData: ?Object,
+  propsData: null | undefined | Object,
   vm?: Component
 ): any {
   /* istanbul ignore if */
@@ -49,7 +49,7 @@ export function validateProp (
 /**
  * Get the default value of a prop.
  */
-function getPropDefaultValue (vm: ?Component, prop: PropOptions, name: string): any {
+function getPropDefaultValue (vm: null | undefined | Component, prop: PropOptions, name: string): any {
   // no default, return undefined
   if (!hasOwn(prop, 'default')) {
     return undefined
@@ -77,7 +77,7 @@ function assertProp (
   prop: PropOptions,
   name: string,
   value: any,
-  vm: ?Component,
+  vm: null | undefined | Component,
   absent: boolean
 ) {
   if (prop.required && absent) {

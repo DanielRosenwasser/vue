@@ -216,7 +216,7 @@ export function leave (vnode: VNodeWithData, rm: Function) {
   }
 }
 
-function resolveTransition (def?: string | Object): ?Object {
+function resolveTransition (def?: string | Object): null | undefined | Object {
   if (!def) {
     return
   }

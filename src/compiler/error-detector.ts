@@ -16,7 +16,7 @@ const identRE = /[A-Za-z_$][\w$]*/
 const stripStringRE = /'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|`(?:[^`\\]|\\.)*\$\{|\}(?:[^`\\]|\\.)*`|`(?:[^`\\]|\\.)*`/g
 
 // detect problematic expressions in a template
-export function detectErrors (ast: ?ASTNode): Array<string> {
+export function detectErrors (ast: null | undefined | ASTNode): Array<string> {
   const errors: Array<string> = []
   if (ast) {
     checkNode(ast, errors)
@@ -55,7 +55,7 @@ function checkFor (node: ASTElement, text: string, errors: Array<string>) {
   checkIdentifier(node.iterator2, 'v-for iterator', text, errors)
 }
 
-function checkIdentifier (ident: ?string, type: string, text: string, errors: Array<string>) {
+function checkIdentifier (ident: null | undefined | string, type: string, text: string, errors: Array<string>) {
   if (typeof ident === 'string' && !identRE.test(ident)) {
     errors.push(`- invalid ${type} "${ident}" in expression: ${text}`)
   }

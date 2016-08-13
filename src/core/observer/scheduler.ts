@@ -9,7 +9,7 @@ import {
 } from '../util/index'
 
 const queue: Array<Watcher> = []
-let has: { [key: number]: ?true } = {}
+let has: { [key: number]: null | undefined | true } = {}
 let circular: { [key: number]: number } = {}
 let waiting = false
 let flushing = false

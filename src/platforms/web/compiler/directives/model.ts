@@ -8,7 +8,7 @@ export default function model (
   el: ASTElement,
   dir: ASTDirective,
   _warn: Function
-): ?boolean {
+): null | undefined | boolean {
   warn = _warn
   const value = dir.value
   const modifiers = dir.modifiers
@@ -28,7 +28,7 @@ export default function model (
   }
 }
 
-function genCheckboxModel (el: ASTElement, value: ?string) {
+function genCheckboxModel (el: ASTElement, value: null | undefined | string) {
   if (process.env.NODE_ENV !== 'production' &&
     el.attrsMap.checked != null) {
     warn(
@@ -58,7 +58,7 @@ function genCheckboxModel (el: ASTElement, value: ?string) {
   )
 }
 
-function genRadioModel (el: ASTElement, value: ?string) {
+function genRadioModel (el: ASTElement, value: null | undefined | string) {
   if (process.env.NODE_ENV !== 'production' &&
     el.attrsMap.checked != null) {
     warn(
@@ -74,9 +74,9 @@ function genRadioModel (el: ASTElement, value: ?string) {
 
 function genDefaultModel (
   el: ASTElement,
-  value: ?string,
-  modifiers: ?Object
-): ?boolean {
+  value: null | undefined | string,
+  modifiers: null | undefined | Object
+): null | undefined | boolean {
   if (process.env.NODE_ENV !== 'production') {
     if (el.tag === 'input' && el.attrsMap.value) {
       warn(
@@ -117,7 +117,7 @@ function genDefaultModel (
   }
 }
 
-function genSelect (el: ASTElement, value: ?string) {
+function genSelect (el: ASTElement, value: null | undefined | string) {
   if (process.env.NODE_ENV !== 'production') {
     el.children.some(checkOptionWarning)
   }

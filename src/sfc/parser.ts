@@ -27,7 +27,7 @@ export function parseComponent (
     styles: []
   }
   let depth = 0
-  let currentBlock: ?SFCBlock = null
+  let currentBlock: null | undefined | SFCBlock = null
 
   function start (
     tag: string,

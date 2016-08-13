@@ -14,7 +14,7 @@ export function createRenderer ({
   modules: Array<Function>,
   directives: Object,
   isUnaryTag: Function,
-  cache: ?Object
+  cache: null | undefined | Object
 } = {}): {
   renderToString: Function,
   renderToStream: Function
@@ -31,7 +31,7 @@ export function createRenderer ({
   return {
     renderToString (
       component: Component,
-      done: (err: ?Error, res: ?string) => any
+      done: (err: null | undefined | Error, res: null | undefined | string) => any
     ): void {
       let result = ''
       const write = createWriteFunction(text => {

@@ -55,13 +55,13 @@ export const isSVG = makeMap(
   true
 )
 
-export const isPreTag = (tag: ?string): boolean => tag === 'pre'
+export const isPreTag = (tag: null | undefined | string): boolean => tag === 'pre'
 
-export const isReservedTag = (tag: string): ?boolean => {
+export const isReservedTag = (tag: string): null | undefined | boolean => {
   return isHTMLTag(tag) || isSVG(tag)
 }
 
-export function getTagNamespace (tag: string): ?string {
+export function getTagNamespace (tag: string): null | undefined | string {
   if (isSVG(tag)) {
     return 'svg'
   }

@@ -47,7 +47,7 @@ export function removeTransitionClass (el: any, cls: string) {
 
 export function whenTransitionEnds (
   el: Element,
-  expectedType: ?stirng,
+  expectedType: null | undefined | stirng,
   cb: Function
 ) {
   const { type, timeout, propCount } = getTransitionInfo(el, expectedType)
@@ -73,8 +73,8 @@ export function whenTransitionEnds (
 
 const transformRE = /\b(transform|all)(,|$)/
 
-export function getTransitionInfo (el: Element, expectedType?: ?string): {
-  type: ?string;
+export function getTransitionInfo (el: Element, expectedType?: null | undefined | string): {
+  type: null | undefined | string;
   propCount: number;
   timeout: number;
 } {

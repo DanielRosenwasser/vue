@@ -17,7 +17,7 @@ export default {
   }
 }
 
-function registerRef (vnode: VNodeWithData, isRemoval: ?boolean) {
+function registerRef (vnode: VNodeWithData, isRemoval: null | undefined | boolean) {
   const key = vnode.data.ref
   if (!key) return
 

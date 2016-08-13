@@ -2,7 +2,7 @@
 
 import { hyphenate, toObject } from 'shared/util'
 
-export default function renderStyle (node: VNodeWithData): ?string {
+export default function renderStyle (node: VNodeWithData): null | undefined | string {
   const staticStyle = node.data.attrs && node.data.attrs.style
   if (node.data.style || staticStyle) {
     let styles = node.data.style

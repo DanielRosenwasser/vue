@@ -7,8 +7,8 @@ export type Config = {
   optionMergeStrategies: { [key: string]: Function };
   silent: boolean;
   devtools: boolean;
-  errorHandler: ?Function;
-  ignoredElements: ?Array<string>;
+  errorHandler: null | undefined | Function;
+  ignoredElements: null | undefined | Array<string>;
   keyCodes: { [key: string]: number };
   // platform
   isReservedTag: (x?: string) => boolean;

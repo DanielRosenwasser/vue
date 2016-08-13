@@ -5,7 +5,7 @@ export function baseWarn (msg: string) {
 }
 
 export function pluckModuleFunction (
-  modules: ?Array<Object>,
+  modules: null | undefined | Array<Object>,
   key: string
 ): Array<Function> {
   return modules
@@ -25,8 +25,8 @@ export function addDirective (
   el: ASTElement,
   name: string,
   value: string,
-  arg: ?string,
-  modifiers: ?{ [key: string]: true }
+  arg: null | undefined | string,
+  modifiers: { [key: string]: true }
 ) {
   (el.directives || (el.directives = [])).push({ name, value, arg, modifiers })
 }
@@ -46,7 +46,7 @@ export function addHandler (
   el: ASTElement,
   name: string,
   value: string,
-  modifiers: ?{ [key: string]: true }
+  modifiers: null | undefined | { [key: string]: true }
 ) {
   // check capture modifier
   if (modifiers && modifiers.capture) {
@@ -76,7 +76,7 @@ export function getBindingAttr (
   el: ASTElement,
   name: string,
   getStatic?: boolean
-): ?string {
+): null | undefined | string {
   const dynamicValue =
     getAndRemoveAttr(el, ':' + name) ||
     getAndRemoveAttr(el, 'v-bind:' + name)
@@ -90,7 +90,7 @@ export function getBindingAttr (
   }
 }
 
-export function getAndRemoveAttr (el: ASTElement, name: string): ?string {
+export function getAndRemoveAttr (el: ASTElement, name: string): null | undefined | string {
   let val
   if ((val = el.attrsMap[name]) != null) {
     const list = el.attrsList

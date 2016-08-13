@@ -30,11 +30,11 @@ export function appendChild (node: Node, child: Node) {
   node.appendChild(child)
 }
 
-export function parentNode (node: Node): ?Node {
+export function parentNode (node: Node): null | undefined | Node {
   return node.parentNode
 }
 
-export function nextSibling (node: Node): ?Node {
+export function nextSibling (node: Node): null | undefined | Node {
   return node.nextSibling
 }
 

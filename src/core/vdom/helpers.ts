@@ -56,7 +56,7 @@ function applyNS (vnode, ns) {
   }
 }
 
-export function getFirstComponentChild (children: ?Array<any>) {
+export function getFirstComponentChild (children: null | undefined | Array<any>) {
   return children && children.filter(c => c && c.componentOptions)[0]
 }
 

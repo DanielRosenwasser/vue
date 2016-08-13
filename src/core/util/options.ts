@@ -49,7 +49,7 @@ if (process.env.NODE_ENV !== 'production') {
 /**
  * Helper that recursively merges two data objects together.
  */
-function mergeData (to: Object, from: ?Object): Object {
+function mergeData (to: Object, from: null | undefined | Object): Object {
   let key, toVal, fromVal
   for (key in from) {
     toVal = to[key]
@@ -70,7 +70,7 @@ strats.data = function (
   parentVal: any,
   childVal: any,
   vm?: Component
-): ?Function {
+): null | undefined | Function {
   if (!vm) {
     // in a Vue.extend merge, both should be functions
     if (!childVal) {
@@ -121,9 +121,9 @@ strats.data = function (
  * Hooks and param attributes are merged as arrays.
  */
 function mergeHook (
-  parentVal: ?Array<Function>,
-  childVal: ?Function | ?Array<Function>
-): ?Array<Function> {
+  parentVal: null | undefined | Array<Function>,
+  childVal: null | undefined | Function | Array<Function>
+): null | undefined | Array<Function> {
   return childVal
     ? parentVal
       ? parentVal.concat(childVal)
@@ -144,7 +144,7 @@ config._lifecycleHooks.forEach(hook => {
  * a three-way merge between constructor options, instance
  * options and parent options.
  */
-function mergeAssets (parentVal: ?Object, childVal: ?Object): Object {
+function mergeAssets (parentVal: null | undefined | Object, childVal: null | undefined | Object): Object {
   const res = Object.create(parentVal || null)
   return childVal
     ? extend(res, childVal)
@@ -161,7 +161,7 @@ config._assetTypes.forEach(function (type) {
  * Watchers hashes should not overwrite one
  * another, so we merge them as arrays.
  */
-strats.watch = function (parentVal: ?Object, childVal: ?Object): ?Object {
+strats.watch = function (parentVal: null | undefined | Object, childVal: null | undefined | Object): null | undefined | Object {
   /* istanbul ignore if */
   if (!childVal) return parentVal
   if (!parentVal) return childVal
@@ -185,7 +185,7 @@ strats.watch = function (parentVal: ?Object, childVal: ?Object): ?Object {
  */
 strats.props =
 strats.methods =
-strats.computed = function (parentVal: ?Object, childVal: ?Object): ?Object {
+strats.computed = function (parentVal: null | undefined | Object, childVal: null | undefined | Object): null | undefined | Object {
   if (!childVal) return parentVal
   if (!parentVal) return childVal
   const ret = Object.create(null)

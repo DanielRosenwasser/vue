@@ -42,7 +42,7 @@ function genClassFromData (data: Object): string {
   return ''
 }
 
-export function concat (a: ?string, b: ?string): string {
+export function concat (a: null | undefined | string, b: null | undefined | string): string {
   return a ? b ? (a + ' ' + b) : a : (b || '')
 }
 

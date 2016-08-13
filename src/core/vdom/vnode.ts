@@ -12,8 +12,8 @@ export default class VNode {
   componentOptions: VNodeComponentOptions | void;
   child: Component | void; // component instance
   parent: VNode | void; // compoennt placeholder node
-  raw: ?boolean; // contains raw HTML
-  isStatic: ?boolean; // hoisted static node
+  raw: null | undefined | boolean; // contains raw HTML
+  isStatic: null | undefined | boolean; // hoisted static node
   isRootInsert: boolean; // necessary for enter transition check
   isComment: boolean;
 

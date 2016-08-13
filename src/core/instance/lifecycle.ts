@@ -107,10 +107,10 @@ export function lifecycleMixin (Vue: Class<Component>) {
   }
 
   Vue.prototype._updateFromParent = function (
-    propsData: ?Object,
-    listeners: ?Object,
+    propsData: null | undefined | Object,
+    listeners: null | undefined | Object,
     parentVnode: VNode,
-    renderChildren: ?VNodeChildren
+    renderChildren: null | undefined | VNodeChildren
   ) {
     const vm: Component = this
     const hasChildren = !!(vm.$options._renderChildren || renderChildren)

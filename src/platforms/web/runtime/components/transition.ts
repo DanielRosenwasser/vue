@@ -23,7 +23,7 @@ export const transitionProps = {
 
 // in case the child is also an abstract component, e.g. <keep-alive>
 // we want to recrusively retrieve the real component to be rendered
-function getRealChild (vnode: ?VNode): ?VNode {
+function getRealChild (vnode: null | undefined | VNode): null | undefined | VNode {
   const compOptions = vnode && vnode.componentOptions
   if (compOptions && compOptions.Ctor.options.abstract) {
     return getRealChild(getFirstComponentChild(compOptions.children))
