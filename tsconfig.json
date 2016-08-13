@@ -15,7 +15,8 @@
             "web/*": ["src/platforms/web/*"],
             "server/*": ["src/server/*"],
             "entries/*": ["src/entries/*"],
-            "sfc/*": ["src/sfc/*"]
+            "sfc/*": ["src/sfc/*"],
+            "types/*": ["types/*"]
         }
     },
     "include": ["flow/**/*", "src/**/*"]
