@@ -12,6 +12,16 @@
 import { makeMap, no } from 'shared/util'
 import { isNonPhrasingTag, canBeLeftOpenTag } from 'web/util/index'
 
+interface Element {
+  tag: string
+  attrs: Attribute[]
+}
+
+interface Attribute {
+  name: string
+  value: string
+}
+
 // Regular Expressions for parsing tags and attributes
 const singleAttrIdentifier = /([^\s"'<>\/=]+)/
 const singleAttrAssign = /(?:=)/
@@ -60,8 +70,8 @@ function decodeAttr (value, shouldDecodeTags) {
   return value.replace(ampRE, '&').replace(quoteRE, '"')
 }
 
-export function parseHTML (html, options) {
-  const stack = []
+export function parseHTML (html: string, options) {
+  const stack = [] as Element[]
   const expectHTML = options.expectHTML
   const isUnaryTag = options.isUnaryTag || no
   const isFromDOM = options.isFromDOM
@@ -169,8 +179,10 @@ export function parseHTML (html, options) {
     if (start) {
       const match = {
         tagName: start[1],
-        attrs: [],
-        start: index
+        attrs: [] as string[],
+        start: index,
+        unarySlash: undefined as string | undefined,
+        end: undefined as number | undefined
       }
       advance(start[0].length)
       let end, attr
