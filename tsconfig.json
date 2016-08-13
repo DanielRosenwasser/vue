@@ -4,6 +4,7 @@
         "strictNullChecks": true,
         "module": "commonjs",
         "target": "es5",
+        "lib": ["es6", "es5", "dom"],
         "outDir": "./built",
         "sourceMap": true,
         "allowJs": true,
