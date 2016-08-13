@@ -4,6 +4,8 @@ import { genHandlers } from './events'
 import { baseWarn, pluckModuleFunction } from '../helpers'
 import baseDirectives from '../directives/index'
 
+import { CompilerOptions, ASTElement, ASTNode, ASTText, ASTExpression } from 'types/compiler'
+
 // configurable state
 let warn
 let transforms

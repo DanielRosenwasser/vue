@@ -4,6 +4,7 @@ import { parse } from './parser/index'
 import { optimize } from './optimizer'
 import { generate } from './codegen/index'
 
+import { CompilerOptions, CompiledResult } from 'types/compiler'
 /**
  * Compile a template.
  */

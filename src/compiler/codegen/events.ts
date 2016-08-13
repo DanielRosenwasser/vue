@@ -1,5 +1,7 @@
 /* @flow */
 
+import { ASTElementHandler, ASTElementHandlers } from 'types/compiler'
+
 const simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\]|\[\d+\]|\[[A-Za-z_$][\w$]*\])*$/
 
 // keyCode aliases

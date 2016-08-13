@@ -4,6 +4,8 @@ import deindent from 'de-indent'
 import { parseHTML } from 'compiler/parser/html-parser'
 import { makeMap } from 'shared/util'
 
+import { SFCDescriptor, SFCBlock } from 'types/compiler'
+
 const splitRE = /\r?\n/g
 const isSpecialTag = makeMap('script,style,template', true)
 

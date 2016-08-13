@@ -2,6 +2,8 @@
 
 import { dirRE } from './parser/index'
 
+import { ASTNode, ASTElement } from 'types/compiler'
+
 // operators like typeof, instanceof and in are allowed
 const prohibitedKeywordRE = new RegExp('\\b' + (
   'do,if,for,let,new,try,var,case,else,with,await,break,catch,class,const,' +
