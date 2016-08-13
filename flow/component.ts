@@ -1,21 +1,25 @@
-import type { Config } from '../src/core/config'
-import type VNode from '../src/core/vdom/vnode'
-import type Watcher from '../src/core/observer/watcher'
+import { Config } from '../src/core/config'
+import { ComponentOptions } from './options'
+import VNode from '../src/core/vdom/vnode'
+import { VNodeChildren, VNodeData, VNodeWithData } from './vnode'
+import Watcher from '../src/core/observer/watcher'
 
-declare interface Component {
+export interface ComponentConstructor {
   // constructor information
-  static cid: number;
-  static options: Object;
+  cid: number;
+  options: Object;
   // extend
-  static extend: (options: Object) => Function;
-  static superOptions: Object;
-  static extendOptions: Object;
-  static super: Class<Component>;
+  extend: (options: Object) => Function;
+  superOptions: Object;
+  extendOptions: Object;
+  super: ComponentConstructor;
   // assets
-  static directive: (id: string, def?: Function | Object) => Function | Object | void;
-  static component: (id: string, def?: Class<Component> | Object) => Class<Component>;
-  static filter: (id: string, def?: Function) => Function | void;
+  directive: (id: string, def?: Function | Object) => Function | Object | void;
+  component: (id: string, def?: ComponentConstructor | Object) => ComponentConstructor;
+  filter: (id: string, def?: Function) => Function | void;
+}
 
+export interface Component {
   // public properties
   $el: any; // so that we can attach __vue__ to it
   $data: Object;
@@ -50,7 +54,7 @@ declare interface Component {
   _isVue: true;
   _self: Component;
   _renderProxy: Component;
-  _renderParent: ?Component;
+  _renderParent: null | undefined | Component;
   _watcher: Watcher;
   _watchers: Array<Watcher>;
   _data: Object;
@@ -59,20 +63,20 @@ declare interface Component {
   _isMounted: boolean;
   _isDestroyed: boolean;
   _isBeingDestroyed: boolean;
-  _vnode: ?VNode;
-  _staticTrees: ?Array<VNode>;
+  _vnode: null | undefined | VNode;
+  _staticTrees: null | undefined | Array<VNode>;
 
   // private methods
   // lifecycle
   _init: Function;
   _mount: (el?: Element | void, hydrating?: boolean) => Component;
   _update: (vnode: VNode, hydrating?: boolean) => void;
-  _updateListeners: (listeners: Object, oldListeners: ?Object) => void;
+  _updateListeners: (listeners: Object, oldListeners: null | undefined | Object) => void;
   _updateFromParent: (
-    propsData: ?Object,
-    listeners: ?{ [key: string]: Function | Array<Function> },
+    propsData: null | undefined | Object,
+    listeners: null | undefined | { [key: string]: Function | Array<Function> },
     parentVnode: VNode,
-    renderChildren: ?VNodeChildren
+    renderChildren: null | undefined | VNodeChildren
   ) => void;
   // rendering
   _render: () => VNode;
@@ -88,11 +92,11 @@ declare interface Component {
   // resolveFilter
   _f: (id: string) => Function;
   // renderList
-  _l: (val: any, render: Function) => ?Array<VNode>;
+  _l: (val: any, render: Function) => null | undefined | Array<VNode>;
   // apply v-bind object
   _b: (vnode: VNodeWithData, value: any) => void;
   // retrive custom keyCode
-  _k: (key: string) => ?number;
+  _k: (key: string) => null | undefined | number;
 
   // allow dynamic method registration
   [key: string]: any

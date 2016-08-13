@@ -1,20 +1,24 @@
-declare type InternalComponentOptions = {
+import VNode from '../src/core/vdom/vnode'
+import { VNodeChildren } from './vnode'
+import { Component, ComponentConstructor } from './component'
+
+declare interface InternalComponentOptions {
   _isComponent: true;
   parent: Component;
-  propsData: ?Object;
+  propsData: null | undefined | Object;
   _parentVnode: VNode;
-  _parentListeners: ?Object;
-  _renderChildren: ?VNodeChildren;
-  _componentTag: ?string;
+  _parentListeners: null | undefined | Object;
+  _renderChildren: null | undefined | VNodeChildren;
+  _componentTag: null | undefined | string;
   render?: Function;
   staticRenderFns?: Array<Function>
 }
 
-declare type ComponentOptions = {
+export interface ComponentOptions {
   // data
   data: Object | Function | void;
   props?: { [key: string]: PropOptions };
-  propsData?: ?Object;
+  propsData?: Object;
   computed?: {
     [key: string]: Function | {
       get?: Function;
@@ -42,27 +46,27 @@ declare type ComponentOptions = {
   updated?: Function;
   // assets
   directives?: { [key: string]: Object };
-  components?: { [key: string]: Class<Component> };
+  components?: { [key: string]: ComponentConstructor };
   transitions?: { [key: string]: Object };
   filters?: { [key: string]: Function };
   // misc
   parent?: Component;
   mixins?: Array<Object>;
   name?: string;
-  extends?: Class<Component> | Object;
+  extends?: ComponentConstructor | Object;
   delimiters?: [string, string];
 
   // private
   _isComponent?: true;
   _propKeys?: Array<string>;
   _parentVnode?: VNode;
-  _parentListeners?: ?Object;
-  _renderChildren?: ?VNodeChildren
+  _parentListeners?: Object;
+  _renderChildren?: VNodeChildren
 }
 
-declare type PropOptions = {
+declare interface PropOptions {
   type: Function | Array<Function> | null;
   default: any;
-  required: ?boolean;
-  validator: ?Function;
+  required: null | undefined | boolean;
+  validator: null | undefined | Function;
 }

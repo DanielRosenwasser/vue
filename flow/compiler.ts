@@ -1,15 +1,15 @@
-declare type CompilerOptions = {
+declare interface CompilerOptions {
   warn?: Function; // allow customizing warning in different environments; e.g. node
   isIE?: boolean; // for detecting IE SVG innerHTML bug
   expectHTML?: boolean; // only false for non-web builds
   modules?: Array<ModuleOptions>; // platform specific modules; e.g. style; class
   staticKeys?: string; // a list of AST properties to be considered static; for optimization
   directives?: { [key: string]: Function }; // platform specific directives
-  isUnaryTag?: (tag: string) => ?boolean; // check if a tag is unary for the platform
-  isReservedTag?: (tag: string) => ?boolean; // check if a tag is a native for the platform
-  mustUseProp?: (attr: string) => ?boolean; // check if an attribute should be bound as a property
-  isPreTag?: (attr: string) => ?boolean; // check if a tag needs to preserve whitespace
-  getTagNamespace?: (tag: string) => ?string; // check the namespace for a tag
+  isUnaryTag?: (tag: string) => null | undefined | boolean; // check if a tag is unary for the platform
+  isReservedTag?: (tag: string) => null | undefined | boolean; // check if a tag is a native for the platform
+  mustUseProp?: (attr: string) => null | undefined | boolean; // check if an attribute should be bound as a property
+  isPreTag?: (attr: string) => null | undefined | boolean; // check if a tag needs to preserve whitespace
+  getTagNamespace?: (tag: string) => null | undefined | string; // check the namespace for a tag
   transforms?: Array<Function>; // a list of transforms on parsed AST before codegen
   preserveWhitespace?: boolean;
   isFromDOM?: boolean;
@@ -19,19 +19,19 @@ declare type CompilerOptions = {
   delimiters?: [string, string]; // template delimiters
 }
 
-declare type CompiledResult = {
-  ast: ?ASTElement;
+declare interface CompiledResult {
+  ast: null | undefined | ASTElement;
   render: string;
   staticRenderFns: Array<string>;
   errors?: Array<string>;
 }
 
-declare type CompiledFunctionResult = {
+declare interface CompiledFunctionResult {
   render: Function;
   staticRenderFns: Array<Function>;
 }
 
-declare type ModuleOptions = {
+declare interface ModuleOptions {
   preTransformNode: (el: ASTElement) => void;
   transformNode: (el: ASTElement) => void; // transform an element's AST node
   postTransformNode: (el: ASTElement) => void;
@@ -40,27 +40,27 @@ declare type ModuleOptions = {
   staticKeys?: Array<string>; // AST properties to be considered static
 }
 
-declare type ASTElementHandler = {
+declare interface ASTElementHandler {
   value: string;
-  modifiers: ?{ [key: string]: true };
+  modifiers: null |  undefined | { [key: string]: true };
 }
 
-declare type ASTElementHandlers = {
+declare interface ASTElementHandlers {
   [key: string]: ASTElementHandler | Array<ASTElementHandler>;
 }
 
-declare type ASTElementHooks = { [key: string]: Array<string> }
+declare interface ASTElementHooks { [key: string]: Array<string> }
 
-declare type ASTDirective = {
+declare interface ASTDirective {
   name: string;
-  value: ?string;
-  arg: ?string;
-  modifiers: ?{ [key: string]: true };
+  value: null | undefined | string;
+  arg: null | undefined | string;
+  modifiers: null | undefined | { [key: string]: true };
 }
 
 declare type ASTNode = ASTElement | ASTText | ASTExpression
 
-declare type ASTElement = {
+declare interface ASTElement {
   type: 1;
   tag: string;
   attrsList: Array<{ name: string; value: string }>;
@@ -84,8 +84,8 @@ declare type ASTElement = {
   component?: string;
   inlineTemplate?: true;
   transitionMode?: string | null;
-  slotName?: ?string;
-  slotTarget?: ?string;
+  slotName?: undefined | string;
+  slotTarget?: undefined | string;
 
   ref?: string;
   refInFor?: boolean;
@@ -118,14 +118,14 @@ declare type ASTElement = {
   once?: true;
 }
 
-declare type ASTExpression = {
+declare interface ASTExpression {
   type: 2;
   expression: string;
   text: string;
   static?: boolean;
 }
 
-declare type ASTText = {
+declare interface ASTText {
   type: 3;
   text: string;
   static?: boolean;
@@ -134,13 +134,13 @@ declare type ASTText = {
 // SFC-parser related declarations
 
 // an object format describing a single-file component.
-declare type SFCDescriptor = {
-  template: ?SFCBlock;
-  script: ?SFCBlock;
+declare interface SFCDescriptor {
+  template: null | undefined | SFCBlock;
+  script: null | undefined | SFCBlock;
   styles: Array<SFCBlock>;
 }
 
-declare type SFCBlock = {
+declare interface SFCBlock {
   type: string;
   content: string;
   start?: number;

@@ -1,3 +1,6 @@
+import { Config } from '../src/core/config'
+import { ComponentConstructor } from './component';
+
 declare interface GlobalAPI {
   cid: number;
   options: Object;
@@ -13,7 +16,7 @@ declare interface GlobalAPI {
   compile: (template: string) => { render: Function, staticRenderFns: Array<Function> };
 
   directive: (id: string, def?: Function | Object) => Function | Object | void;
-  component: (id: string, def?: Class<Component> | Object) => Class<Component>;
+  component: (id: string, def?: ComponentConstructor | Object) => ComponentConstructor;
   filter: (id: string, def?: Function) => Function | void;
 
   // allow dynamic method registration

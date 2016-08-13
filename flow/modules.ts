@@ -1,10 +1,10 @@
 declare module 'entities' {
-  declare function encodeHTML(html: string): string;
-  declare function decodeHTML(html: string): string;
+  export function encodeHTML(html: string): string;
+  export function decodeHTML(html: string): string;
 }
 
 declare module 'source-map' {
-  declare class SourceMapGenerator {
+  export class SourceMapGenerator {
     setSourceContent(filename: string, content: string): void;
     addMapping(mapping: Object): void;
     toString(): string;
@@ -12,13 +12,11 @@ declare module 'source-map' {
 }
 
 declare module 'lru-cache' {
-  declare var exports: {
-    (): any
-  }
+  function lru_cache(): any;
+  export = lru_cache;
 }
 
 declare module 'de-indent' {
-  declare var exports: {
-    (input: string): string
-  }
+  function deindent(s: string): string;
+  export = deindent;
 }

@@ -1,14 +1,18 @@
-declare type VNodeChildren = Array<?VNode | string | VNodeChildren> | string
+import VNode from '../src/core/vdom/vnode'
+import { Component } from './component'
 
-declare type VNodeComponentOptions = {
+interface VNodeArray extends Array<null | undefined | VNode | string | VNodeChildren> {}
+export type VNodeChildren = VNodeArray | string
+
+export interface VNodeComponentOptions {
   Ctor: Class<Component>;
-  propsData: ?Object;
-  listeners: ?Object;
-  children: ?VNodeChildren;
+  propsData: null | undefined | Object;
+  listeners: null | undefined | Object;
+  children: null | undefined | VNodeChildren;
   tag?: string;
 }
 
-declare type MountedComponentVNode = {
+interface MountedComponentVNode {
   componentOptions: VNodeComponentOptions;
   child: Component;
   parent: VNode;
@@ -16,7 +20,7 @@ declare type MountedComponentVNode = {
 }
 
 // interface for vnodes in update modules
-declare type VNodeWithData = {
+export interface VNodeWithData {
   tag: string;
   data: VNodeData;
   children: Array<VNode> | void;
@@ -30,7 +34,7 @@ declare type VNodeWithData = {
   isRootInsert: boolean;
 }
 
-declare interface VNodeData {
+export interface VNodeData {
   key?: string | number;
   slot?: string;
   ref?: string;
@@ -43,7 +47,7 @@ declare interface VNodeData {
   attrs?: { [key: string]: string };
   domProps?: { [key: string]: any };
   hook?: { [key: string]: Function };
-  on?: ?{ [key: string]: Function | Array<Function> };
+  on?: null | undefined | { [key: string]: Function | Array<Function> };
   nativeOn?: { [key: string]: Function | Array<Function> };
   transition?: Object;
   inlineTemplate?: {
@@ -54,7 +58,7 @@ declare interface VNodeData {
   keepAlive?: boolean;
 }
 
-declare type VNodeDirective = {
+interface VNodeDirective {
   name: string;
   value?: any;
   oldValue?: any;
