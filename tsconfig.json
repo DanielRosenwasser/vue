@@ -1,12 +1,22 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
         "strictNullChecks": true,
         "module": "commonjs",
         "target": "es5",
-        "outDir": "built",
+        "outDir": "./built",
         "sourceMap": true,
-        "allowJs": true
+        "allowJs": true,
+        "baseUrl": ".",
+        "paths": {
+            "compiler/*": ["src/compiler/*"],
+            "core/*": ["src/core/*"],
+            "shared/*": ["src/shared/*"],
+            "web/*": ["src/platforms/web/*"],
+            "server/*": ["src/server/*"],
+            "entries/*": ["src/entries/*"],
+            "sfc/*": ["src/sfc/*"]
+        }
     },
-    "include": ["flow"]
+    "include": ["flow/**/*", "src/**/*"]
 }
