@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "module": "commonjs",
+        "target": "es5",
+        "outDir": "built",
+        "sourceMap": true,
+        "allowJs": true
+    },
+    "include": ["flow"]
+}
