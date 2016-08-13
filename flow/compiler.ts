@@ -1,4 +1,4 @@
-declare interface CompilerOptions {
+export interface CompilerOptions {
   warn?: Function; // allow customizing warning in different environments; e.g. node
   isIE?: boolean; // for detecting IE SVG innerHTML bug
   expectHTML?: boolean; // only false for non-web builds
@@ -19,19 +19,19 @@ declare interface CompilerOptions {
   delimiters?: [string, string]; // template delimiters
 }
 
-declare interface CompiledResult {
+export interface CompiledResult {
   ast: null | undefined | ASTElement;
   render: string;
   staticRenderFns: Array<string>;
   errors?: Array<string>;
 }
 
-declare interface CompiledFunctionResult {
+export interface CompiledFunctionResult {
   render: Function;
   staticRenderFns: Array<Function>;
 }
 
-declare interface ModuleOptions {
+export interface ModuleOptions {
   preTransformNode: (el: ASTElement) => void;
   transformNode: (el: ASTElement) => void; // transform an element's AST node
   postTransformNode: (el: ASTElement) => void;
@@ -40,27 +40,27 @@ declare interface ModuleOptions {
   staticKeys?: Array<string>; // AST properties to be considered static
 }
 
-declare interface ASTElementHandler {
+export interface ASTElementHandler {
   value: string;
   modifiers: null |  undefined | { [key: string]: true };
 }
 
-declare interface ASTElementHandlers {
+export interface ASTElementHandlers {
   [key: string]: ASTElementHandler | Array<ASTElementHandler>;
 }
 
-declare interface ASTElementHooks { [key: string]: Array<string> }
+export interface ASTElementHooks { [key: string]: Array<string> }
 
-declare interface ASTDirective {
+export interface ASTDirective {
   name: string;
   value: null | undefined | string;
   arg: null | undefined | string;
   modifiers: null | undefined | { [key: string]: true };
 }
 
-declare type ASTNode = ASTElement | ASTText | ASTExpression
+export type ASTNode = ASTElement | ASTText | ASTExpression
 
-declare interface ASTElement {
+export interface ASTElement {
   type: 1;
   tag: string;
   attrsList: Array<{ name: string; value: string }>;
@@ -118,14 +118,14 @@ declare interface ASTElement {
   once?: true;
 }
 
-declare interface ASTExpression {
+export interface ASTExpression {
   type: 2;
   expression: string;
   text: string;
   static?: boolean;
 }
 
-declare interface ASTText {
+export interface ASTText {
   type: 3;
   text: string;
   static?: boolean;
@@ -134,13 +134,13 @@ declare interface ASTText {
 // SFC-parser related declarations
 
 // an object format describing a single-file component.
-declare interface SFCDescriptor {
+export interface SFCDescriptor {
   template: null | undefined | SFCBlock;
   script: null | undefined | SFCBlock;
   styles: Array<SFCBlock>;
 }
 
-declare interface SFCBlock {
+export interface SFCBlock {
   type: string;
   content: string;
   start?: number;
