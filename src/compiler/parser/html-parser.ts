@@ -39,7 +39,7 @@ const endTag = new RegExp('^<\\/' + qnameCapture + '[^>]*>')
 const doctype = /^<!DOCTYPE [^>]+>/i
 
 let IS_REGEX_CAPTURING_BROKEN = false
-'x'.replace(/x(.)?/g, function (m, g) {
+'x'.replace(/x(.)?/g, function (m, g): any {
   IS_REGEX_CAPTURING_BROKEN = g === ''
 })
 
