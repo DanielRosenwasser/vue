@@ -1,18 +1,19 @@
-import VNode from '../src/core/vdom/vnode'
-import { Component } from './component'
+import _VNode from '../src/core/vdom/vnode'
+import { Component, ComponentConstructor } from './component'
 
 interface VNodeArray extends Array<null | undefined | VNode | string | VNodeChildren> {}
 export type VNodeChildren = VNodeArray | string
+export type VNode = _VNode
 
 export interface VNodeComponentOptions {
-  Ctor: Class<Component>;
+  Ctor: ComponentConstructor;
   propsData: null | undefined | Object;
   listeners: null | undefined | Object;
   children: null | undefined | VNodeChildren;
   tag?: string;
 }
 
-interface MountedComponentVNode {
+export interface MountedComponentVNode {
   componentOptions: VNodeComponentOptions;
   child: Component;
   parent: VNode;
@@ -58,7 +59,7 @@ export interface VNodeData {
   keepAlive?: boolean;
 }
 
-interface VNodeDirective {
+export interface VNodeDirective {
   name: string;
   value?: any;
   oldValue?: any;
