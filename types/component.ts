@@ -23,6 +23,8 @@ export interface ComponentConstructor {
 }
 
 export interface Component {
+  constructor: ComponentConstructor;
+
   // public properties
   $el: any; // so that we can attach __vue__ to it
   $data: Object;
