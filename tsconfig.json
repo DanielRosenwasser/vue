@@ -20,5 +20,5 @@
             "types/*": ["types/*"]
         }
     },
-    "include": ["flow/**/*", "src/**/*"]
+    "include": ["types/**/*", "src/**/*"]
 }
