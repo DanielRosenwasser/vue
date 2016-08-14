@@ -4,6 +4,8 @@ import { hasOwn, isObject, isPlainObject, capitalize, hyphenate } from 'shared/u
 import { observe, observerState } from '../observer/index'
 import { warn } from './debug'
 
+import { Component } from 'types/component'
+
 type PropOptions = {
   type: Function | Array<Function> | null,
   default: any,

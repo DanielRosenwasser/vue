@@ -15,6 +15,8 @@ import {
   baseWarn
 } from '../helpers'
 
+import { CompilerOptions, ASTElement } from 'types/compiler'
+
 export const dirRE = /^v-|^@|^:/
 export const forAliasRE = /(.*)\s+(?:in|of)\s+(.*)/
 export const forIteratorRE = /\(([^,]*),([^,]*)(?:,([^,]*))?\)/

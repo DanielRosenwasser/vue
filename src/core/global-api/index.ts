@@ -9,6 +9,8 @@ import { initAssetRegisters } from './assets'
 import { set, del } from '../observer/index'
 import builtInComponents from '../components/index'
 
+import { GlobalAPI } from 'types/global-api'
+
 export function initGlobalAPI (Vue: GlobalAPI) {
   // config
   const configDef = {}

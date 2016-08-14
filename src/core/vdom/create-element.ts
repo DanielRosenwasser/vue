@@ -6,6 +6,8 @@ import { createComponent } from './create-component'
 import { normalizeChildren } from './helpers'
 import { warn, resolveAsset } from '../util/index'
 
+import { Component, ComponentConstructor } from 'types/component'
+
 // wrapper function for providing a more flexible interface
 // without getting yelled at by flow
 export function createElement (
@@ -23,7 +25,7 @@ export function createElement (
 
 function _createElement (
   context: Component,
-  tag?: string | Class<Component> | Function | Object,
+  tag?: string | ComponentConstructor | Function | Object,
   data?: VNodeData,
   children?: VNodeChildren | void
 ): VNode | Array<VNode> | void {

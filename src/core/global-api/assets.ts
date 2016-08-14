@@ -3,6 +3,8 @@
 import config from '../config'
 import { warn, isPlainObject } from '../util/index'
 
+import { GlobalAPI } from 'types/global-api'
+
 export function initAssetRegisters (Vue: GlobalAPI) {
   /**
    * Create asset registration methods.

@@ -7,11 +7,13 @@ import { activeInstance, callHook } from '../instance/lifecycle'
 import { resolveSlots } from '../instance/render'
 import { warn, isObject, hasOwn, hyphenate, validateProp } from '../util/index'
 
+import { Component, ComponentConstructor } from 'types/component'
+
 const hooks = { init, prepatch, insert, destroy }
 const hooksToMerge = Object.keys(hooks)
 
 export function createComponent (
-  Ctor: Class<Component> | Function | Object | void,
+  Ctor: ComponentConstructor | Function | Object | void,
   data?: VNodeData,
   context: Component,
   children?: VNodeChildren,
@@ -171,7 +173,7 @@ function destroy (vnode: MountedComponentVNode) {
 function resolveAsyncComponent (
   factory: Function,
   cb: Function
-): Class<Component> | void {
+): ComponentConstructor | void {
   if (factory.requested) {
     // pool callbacks
     factory.pendingCallbacks.push(cb)
@@ -181,7 +183,7 @@ function resolveAsyncComponent (
     let sync = true
     factory(
       // resolve
-      (res: Object | Class<Component>) => {
+      (res: Object | ComponentConstructor) => {
         if (isObject(res)) {
           res = Vue.extend(res)
         }
@@ -209,7 +211,7 @@ function resolveAsyncComponent (
   }
 }
 
-function extractProps (data: VNodeData, Ctor: Class<Component>): null | undefined | Object {
+function extractProps (data: VNodeData, Ctor: ComponentConstructor): null | undefined | Object {
   // we are only extrating raw values here.
   // validation and default values are handled in the child
   // component itself.

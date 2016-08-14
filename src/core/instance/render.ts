@@ -10,6 +10,8 @@ import {
 
 import { createElement } from '../vdom/create-element'
 
+import { Component, ComponentConstructor } from 'types/component'
+
 export function initRender (vm: Component) {
   vm.$vnode = null // the placeholder node in parent tree
   vm._vnode = null // the root of the child tree
@@ -23,7 +25,7 @@ export function initRender (vm: Component) {
   }
 }
 
-export function renderMixin (Vue: Class<Component>) {
+export function renderMixin (Vue: ComponentConstructor) {
   Vue.prototype.$nextTick = function (fn: Function) {
     nextTick(fn, this)
   }

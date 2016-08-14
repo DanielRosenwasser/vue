@@ -2,6 +2,8 @@
 
 import { toArray } from '../util/index'
 
+import { GlobalAPI } from 'types/global-api'
+
 export function initUse (Vue: GlobalAPI) {
   Vue.use = function (plugin: Function | Object) {
     /* istanbul ignore if */

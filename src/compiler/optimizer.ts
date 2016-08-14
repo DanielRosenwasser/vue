@@ -2,6 +2,8 @@
 
 import { makeMap, isBuiltInTag, cached } from 'shared/util'
 
+import { ASTNode, ASTElement, CompilerOptions } from 'types/compiler'
+
 let isStaticKey
 let isPlatformReservedTag
 

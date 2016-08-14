@@ -1,5 +1,7 @@
 /* @flow */
 
+import { ModuleOptions } from 'types/compiler'
+
 /**
  * Convert a value to a string that is actually rendered.
  */

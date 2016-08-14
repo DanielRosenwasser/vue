@@ -7,9 +7,11 @@ import { initEvents } from './events'
 import { initLifecycle, callHook } from './lifecycle'
 import { mergeOptions } from '../util/index'
 
+import { Component, ComponentConstructor } from 'types/component'
+
 let uid = 0
 
-export function initMixin (Vue: Class<Component>) {
+export function initMixin (Vue: ComponentConstructor) {
   Vue.prototype._init = function (options?: Object) {
     const vm: Component = this
     // a uid

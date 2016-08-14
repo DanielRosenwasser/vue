@@ -6,6 +6,8 @@ import { observerState } from '../observer/index'
 import { warn, validateProp, remove, noop } from '../util/index'
 import { resolveSlots } from './render'
 
+import { Component, ComponentConstructor } from 'types/component'
+
 export let activeInstance: any = null
 
 export function initLifecycle (vm: Component) {
@@ -33,7 +35,7 @@ export function initLifecycle (vm: Component) {
   vm._isBeingDestroyed = false
 }
 
-export function lifecycleMixin (Vue: Class<Component>) {
+export function lifecycleMixin (Vue: ComponentConstructor) {
   Vue.prototype._mount = function (
     el?: Element | void,
     hydrating?: boolean

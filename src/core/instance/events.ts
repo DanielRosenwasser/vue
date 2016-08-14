@@ -3,6 +3,8 @@
 import { bind, toArray } from '../util/index'
 import { updateListeners } from '../vdom/helpers'
 
+import { Component, ComponentConstructor } from 'types/component'
+
 export function initEvents (vm: Component) {
   vm._events = Object.create(null)
   // init parent attached events
@@ -17,7 +19,7 @@ export function initEvents (vm: Component) {
   }
 }
 
-export function eventsMixin (Vue: Class<Component>) {
+export function eventsMixin (Vue: ComponentConstructor) {
   Vue.prototype.$on = function (event: string, fn: Function): Component {
     const vm: Component = this
     ;(vm._events[event] || (vm._events[event] = [])).push(fn)

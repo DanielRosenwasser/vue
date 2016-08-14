@@ -19,6 +19,8 @@ import {
   noop
 } from '../util/index'
 
+import { Component, ComponentConstructor } from 'types/component'
+
 export function initState (vm: Component) {
   vm._watchers = []
   initProps(vm)
@@ -173,7 +175,7 @@ function createWatcher (vm: Component, key: string, handler: any) {
   vm.$watch(key, handler, options)
 }
 
-export function stateMixin (Vue: Class<Component>) {
+export function stateMixin (Vue: ComponentConstructor) {
   // flow somehow has problems with directly declared definition object
   // when using Object.defineProperty, so we have to procedurally build up
   // the object here.

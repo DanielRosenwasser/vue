@@ -3,6 +3,8 @@
 import config from '../config'
 import { warn, mergeOptions } from '../util/index'
 
+import { GlobalAPI } from 'types/global-api'
+
 export function initExtend (Vue: GlobalAPI) {
   /**
    * Each instance constructor, including Vue, has a unique

@@ -1,7 +1,7 @@
 import { Config } from '../src/core/config'
 import { ComponentConstructor } from './component';
 
-declare interface GlobalAPI {
+export interface GlobalAPI {
   cid: number;
   options: Object;
   config: Config;
