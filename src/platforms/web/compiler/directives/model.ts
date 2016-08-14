@@ -2,6 +2,8 @@
 
 import { addHandler, addProp, getBindingAttr } from 'compiler/helpers'
 
+import { ASTElement, ASTDirective } from 'types/compiler'
+
 let warn
 
 export default function model (

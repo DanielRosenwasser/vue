@@ -3,6 +3,8 @@
 import { isIE9 } from 'web/util/index'
 import { enter, leave } from '../modules/transition'
 
+import { VNode, VNodeWithData, VNodeDirective } from 'types/vnode'
+
 // recursively search for possible transition defined inside the component root
 function locateNode (vnode: VNode): VNodeWithData {
   return vnode.child && (!vnode.data || !vnode.data.transition)

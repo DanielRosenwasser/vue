@@ -2,6 +2,8 @@
 
 import { resolveAsset } from 'core/util/options'
 
+import { VNodeWithData } from 'types/vnode'
+
 export default {
   create: function bindDirectives (oldVnode: VNodeWithData, vnode: VNodeWithData) {
     applyDirectives(oldVnode, vnode, 'bind')

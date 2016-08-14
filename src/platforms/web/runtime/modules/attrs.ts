@@ -10,6 +10,8 @@ import {
   isFalsyAttrValue
 } from 'web/util/index'
 
+import { VNodeWithData } from 'types/vnode'
+
 function updateAttrs (oldVnode: VNodeWithData, vnode: VNodeWithData) {
   if (!oldVnode.data.attrs && !vnode.data.attrs) {
     return

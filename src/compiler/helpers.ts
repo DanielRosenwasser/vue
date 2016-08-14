@@ -1,5 +1,7 @@
 /* @flow */
 
+import { ASTElement } from 'types/compiler'
+
 export function baseWarn (msg: string) {
   console.error(`[Vue parser]: ${msg}`)
 }

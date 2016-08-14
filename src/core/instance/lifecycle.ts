@@ -1,11 +1,12 @@
 /* @flow */
 
 import Watcher from '../observer/watcher'
-import { emptyVNode } from '../vdom/vnode'
+import VNode, { emptyVNode } from '../vdom/vnode'
 import { observerState } from '../observer/index'
 import { warn, validateProp, remove, noop } from '../util/index'
 import { resolveSlots } from './render'
 
+import { VNodeChildren } from 'types/vnode'
 import { Component, ComponentConstructor } from 'types/component'
 
 export let activeInstance: any = null

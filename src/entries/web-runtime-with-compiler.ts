@@ -5,6 +5,8 @@ import { warn, cached } from 'core/util/index'
 import { query, shouldDecodeTags } from 'web/util/index'
 import { compileToFunctions } from 'web/compiler/index'
 
+import { Component } from 'types/component'
+
 const idToTemplate = cached(id => {
   const el = query(id)
   return el && el.innerHTML

@@ -11,6 +11,8 @@ import {
   _Set as Set
 } from '../util/index'
 
+import { Component } from 'types/component'
+
 let uid = 0
 
 /**

@@ -11,6 +11,9 @@ import {
   mustUseProp, getTagNamespace, isPreTag
 } from '../util/index'
 
+import { Component } from 'types/component'
+import { CompiledFunctionResult, CompiledResult, CompilerOptions } from 'types/compiler'
+
 const cache: { [key: string]: CompiledFunctionResult } = Object.create(null)
 
 export const baseOptions: CompilerOptions = {

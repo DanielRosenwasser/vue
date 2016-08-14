@@ -2,6 +2,8 @@
 
 import { remove } from 'shared/util'
 
+import { VNodeWithData } from 'types/vnode'
+
 export default {
   create (_, vnode) {
     registerRef(vnode)

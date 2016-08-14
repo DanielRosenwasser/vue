@@ -7,6 +7,7 @@ import { initEvents } from './events'
 import { initLifecycle, callHook } from './lifecycle'
 import { mergeOptions } from '../util/index'
 
+import { InternalComponentOptions } from 'types/options'
 import { Component, ComponentConstructor } from 'types/component'
 
 let uid = 0

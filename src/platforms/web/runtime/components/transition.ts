@@ -7,6 +7,9 @@ import { warn } from 'core/util/index'
 import { camelize, extend } from 'shared/util'
 import { mergeVNodeHook, getFirstComponentChild } from 'core/vdom/helpers'
 
+import { Component } from 'types/component'
+import VNode from 'core/vdom/vnode'
+
 export const transitionProps = {
   name: String,
   appear: Boolean,

@@ -5,6 +5,8 @@ import { detectErrors } from 'compiler/error-detector'
 export { parseComponent } from 'sfc/parser'
 export { compileToFunctions } from 'web/compiler/index'
 
+import { CompilerOptions, CompiledResult } from 'types/compiler'
+
 export function compile (
   template: string,
   options?: CompilerOptions

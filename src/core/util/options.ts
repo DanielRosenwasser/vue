@@ -14,6 +14,8 @@ import {
   isBuiltInTag
 } from 'shared/util'
 
+import { Component } from 'types/component'
+
 /**
  * Option overwriting strategies are functions that handle
  * how to merge a parent option value and a child option

@@ -7,6 +7,8 @@ import {
   baseWarn
 } from 'compiler/helpers'
 
+import { ASTElement, CompilerOptions } from 'types/compiler'
+
 function transformNode (el: ASTElement, options: CompilerOptions) {
   const warn = options.warn || baseWarn
   const staticClass = getAndRemoveAttr(el, 'class')

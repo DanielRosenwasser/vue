@@ -15,6 +15,8 @@ import {
   mustUseProp
 } from 'web/util/index'
 
+import { Component } from 'types/component'
+
 // install platform specific utils
 Vue.config.isUnknownElement = isUnknownElement
 Vue.config.isReservedTag = isReservedTag

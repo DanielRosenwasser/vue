@@ -1,5 +1,8 @@
 /* @flow */
 
+import { VNodeData, VNodeComponentOptions } from 'types/vnode'
+import { Component } from 'types/component'
+
 export default class VNode {
   tag: string | void;
   data: VNodeData | void;

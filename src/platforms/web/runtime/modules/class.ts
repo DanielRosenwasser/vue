@@ -2,6 +2,8 @@
 
 import { genClassForVnode, concat, stringifyClass } from 'web/util/index'
 
+import { VNodeData } from 'types/vnode'
+
 function updateClass (oldVnode: any, vnode: any) {
   const el = vnode.elm
   const data: VNodeData = vnode.data

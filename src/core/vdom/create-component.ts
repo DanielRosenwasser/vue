@@ -7,7 +7,9 @@ import { activeInstance, callHook } from '../instance/lifecycle'
 import { resolveSlots } from '../instance/render'
 import { warn, isObject, hasOwn, hyphenate, validateProp } from '../util/index'
 
+import { InternalComponentOptions } from 'types/options'
 import { Component, ComponentConstructor } from 'types/component'
+import { VNodeData, VNodeChildren, VNodeWithData, MountedComponentVNode } from 'types/vnode'
 
 const hooks = { init, prepatch, insert, destroy }
 const hooksToMerge = Object.keys(hooks)

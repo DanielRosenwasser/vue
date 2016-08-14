@@ -10,6 +10,7 @@ import {
 
 import { createElement } from '../vdom/create-element'
 
+import { VNodeChildren, VNodeWithData } from 'types/vnode'
 import { Component, ComponentConstructor } from 'types/component'
 
 export function initRender (vm: Component) {

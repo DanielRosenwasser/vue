@@ -6,6 +6,7 @@ import { createComponent } from './create-component'
 import { normalizeChildren } from './helpers'
 import { warn, resolveAsset } from '../util/index'
 
+import { VNodeData, VNodeChildren } from 'types/vnode'
 import { Component, ComponentConstructor } from 'types/component'
 
 // wrapper function for providing a more flexible interface
