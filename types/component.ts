@@ -17,6 +17,9 @@ export interface ComponentConstructor {
   directive: (id: string, def?: Function | Object) => Function | Object | void;
   component: (id: string, def?: ComponentConstructor | Object) => ComponentConstructor;
   filter: (id: string, def?: Function) => Function | void;
+
+  prototype: Component;
+  new (): Component;
 }
 
 export interface Component {
